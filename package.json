@@ -1,0 +1,14 @@
+{
+  "name": "restaurant_recommendation-node-project",
+  "version": "1.0.0",
+  "description": "This package is for learning node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Uijeong Jeong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

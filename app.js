@@ -1,6 +1,6 @@
 const express = require("express");
 const router = require("./routes/routes");
-
+require("dotenv").config({ path: ".env" });
 const app = express();
 
 // 클라이언트 요청 body를 json으로 파싱 처리

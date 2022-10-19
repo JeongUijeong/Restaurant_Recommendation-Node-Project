@@ -6,6 +6,7 @@ const idCheck = /^[0-9a-zA-Z]{1,15}$/g; // 영대소문자, 숫자 최대 15글�
 const pwCheck = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])([a-zA-Z0-9]){8,15}$/g; // 영대소문자, 숫자 조합 최소 8자 최대 15자
 const nicknameCheck = /^[0-9a-zA-Z가-힣]{1,15}$/g; // 한글, 영대소문자, 숫자 최대 15글자
 
+// 회원 가입
 const signup = async (req, res) => {
   try {
     // 전역 탐색 이후 lastIndex가 바뀜 => true, false가 반복되는 문제 생김 => lastIndex 초기화
@@ -56,4 +57,42 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup };
+// 로그인
+const signin = async (req, res) => {
+  try {
+    let user = await mysql.query("userSelectById", req.body.id);
+    if (!user[0]) {
+      // 일치하는 id가 없는 경우
+      res.status(400).json({
+        error: "존재하지 않는 아이디 입니다.",
+      });
+      return;
+    }
+    let db_pw = user[0].pw;
+    let salt = user[0].salt;
+    let hashed_pw = crypto
+      .createHash("sha512")
+      .update(req.body.pw + salt)
+      .digest("hex");
+    //비밀번호 일치 확인
+    if (db_pw === hashed_pw) {
+      //토큰 생성
+      let token = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
+      //토큰 정보 update
+      await mysql.query("userUpdate", [{ token: token }, req.body.id]);
+      res.status(200).json({
+        message: "로그인에 성공하였습니다",
+        token,
+      });
+    } else {
+      res.status(500).json({ message: "잘못된 비밀번호 입니다" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      error: "로그인 중 오류가 발생했습니다. ",
+    });
+  }
+};
+
+module.exports = { signup, signin };

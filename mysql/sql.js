@@ -1,4 +1,5 @@
 module.exports = {
   userSelectById: `select * from users where id=?`,
-  userUpdate: `update users set ? where id=?`,
+  userUpdateById: `update users set ? where id=?`,
+  userUpdateByToken: `update users set ? where token=?`,
 };

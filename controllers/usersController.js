@@ -74,11 +74,11 @@ const signin = async (req, res) => {
       .createHash("sha512")
       .update(req.body.pw + salt)
       .digest("hex");
-    //비밀번호 일치 확인
+    // 비밀번호 일치 확인
     if (db_pw === hashed_pw) {
-      //토큰 생성
+      // 토큰 생성
       let token = jwt.sign({ id: req.body.id }, process.env.JWT_SECRET);
-      //토큰 정보 update
+      // 토큰 정보 update
       await mysql.query("userUpdateById", [{ token: token }, req.body.id]);
       res.status(200).json({
         message: "로그인에 성공하였습니다",
@@ -95,11 +95,12 @@ const signin = async (req, res) => {
   }
 };
 
+// 회원 정보 수정
 const userEdit = async (req, res) => {
   try {
-    //요청 헤더 내의 authorization 헤더에서 토큰 추출
+    // 요청 헤더 내의 authorization 헤더에서 토큰 추출
     let token = req.headers.authorization.split("Bearer ")[1];
-    //양식 검사
+    // 양식 검사
     pwCheck.lastIndex = 0;
     nicknameCheck.lastIndex = 0;
     if (!pwCheck.test(req.body.pw)) {
@@ -110,13 +111,13 @@ const userEdit = async (req, res) => {
       res.status(400).json({ error: "닉네임 양식이 다릅니다. " });
       return;
     }
-    //해시 암호화
+    // 해시 암호화
     let salt = Math.round(new Date().valueOf() * Math.random()) + "";
     let hashed_pw = crypto
       .createHash("sha512")
       .update(req.body.pw + salt)
       .digest("hex");
-    //회원정보 수정사항 update
+    // 회원 정보 수정 사항 update
     await mysql.query("userUpdateByToken", [
       { nickname: req.body.nickname, pw: hashed_pw, salt: salt },
       token,
@@ -131,4 +132,5 @@ const userEdit = async (req, res) => {
     });
   }
 };
+
 module.exports = { signup, signin, userEdit };

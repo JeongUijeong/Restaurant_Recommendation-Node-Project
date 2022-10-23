@@ -13,4 +13,5 @@ module.exports = {
   restaurantSelectBySearch: `select * from restaurants where tag like ? or r_name like ?`,
   c_sumSelectByR_Idx: `select count(r_Idx) as c_sum from comments where r_Idx=?`,
   restaurantSelectByCategory: `select * from restaurants where tag like ? or tag like ?`,
+  themeSelect: `select distinct(t_title),t_image from themes`,
 };

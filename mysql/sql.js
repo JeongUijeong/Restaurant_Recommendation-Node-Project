@@ -1,6 +1,6 @@
 module.exports = {
   userInsert: `insert into users (id, nickname, pw, salt) values(?,?,?,?)`,
-  userSelectById: `select * from users where id=?`,
+  userSelectByU_Idx: `select * from users where u_Idx=?`,
   userSelectByToken: `select * from users where token=?`,
   userUpdateById: `update users set ? where id=?`,
   userUpdateByToken: `update users set ? where token=?`,
@@ -8,6 +8,7 @@ module.exports = {
   likeInsert: `insert into likes (u_Idx, r_Idx) values(?,?)`,
   likeDelete: `delete from likes where u_Idx = ? and r_Idx = ?`,
   likeSelect: `select r_Idx from likes where u_Idx=?`,
+  likeSelectForRestaurantDetail: `select * from likes where u_Idx and r_Idx`,
 
   restaurantInsert: `insert into restaurants (r_Idx,r_name,image,address,tag,price,stars,parking,takeout) values (?,?,?,?,?,?,?,?,?)`,
   restaurantSelect: `select * from restaurants`,
@@ -23,4 +24,6 @@ module.exports = {
 
   commentInsert: `insert into comments (r_Idx,u_Idx,c_title,c_contents,star) values(?,?,?,?,?)`,
   commentSelectByU_Idx: `select * from comments where u_Idx=?`,
+  commentSelectForRestaurantDetail: `select * from comments where u_Idx=? and r_Idx=?`,
+  commentSelectByR_Idx: `select * from comments where r_Idx=?`,
 };

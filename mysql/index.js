@@ -9,6 +9,7 @@ const pool = mysql.createPool({
   user: process.env.MYSQL_USERNAME,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB,
+  dateStrings: "date",
 });
 
 // 쿼리문 실행, 결과 반환 함수

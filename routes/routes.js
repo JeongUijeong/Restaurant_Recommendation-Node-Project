@@ -12,5 +12,6 @@ router.post("/like", likesController.like); // 찜 등록 라우팅
 router.delete("/like", likesController.dislike); // 찜 취소 라우팅
 router.get("/mypage", mypageController.mypage); // 마이페이지 라우팅
 router.get("/search/:search", restaurantsController.search); // 검색, 선택장애, 룰렛 라우팅
+router.get("/list/:search", restaurantsController.search); // 재검색 라우팅
 
 module.exports = router;

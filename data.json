@@ -3578,6 +3578,28 @@
         "takeout": true,
         "parking": false
       }
+    },
+    {
+      "restaurant_name": "사조참치 사당역점",
+      "img": "https://awesome-place-bucket.s3.amazonaws.com/theme/%EC%82%AC%EC%A1%B0%EC%B0%B8%EC%B9%98_1.jpeg https://awesome-place-bucket.s3.amazonaws.com/theme/%EC%82%AC%EC%A1%B0%EC%B0%B8%EC%B9%98_2.jpeg",
+      "address": "서울특별시 서초구 방배천로2길 12",
+      "star": 0,
+      "price": 15000,
+      "options": {
+        "takeout": true,
+        "parking": false
+      }
+    },
+    {
+      "restaurant_name": "혜비수참치",
+      "img": "https://awesome-place-bucket.s3.amazonaws.com/theme/%ED%98%9C%EB%B9%84%EC%88%98%EC%B0%B8%EC%B9%98_1.jpeg https://awesome-place-bucket.s3.amazonaws.com/theme/%ED%98%9C%EB%B9%84%EC%88%98%EC%B0%B8%EC%B9%98_2.jpeg",
+      "address": "서울특별시 영등포구 국제금융로6길 33",
+      "star": 0,
+      "price": 27000,
+      "options": {
+        "takeout": true,
+        "parking": false
+      }
     }
   ]
 }

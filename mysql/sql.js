@@ -8,4 +8,6 @@ module.exports = {
   likeInsert: `insert into likes (u_Idx, r_Idx) values(?,?)`,
   likeDelete: `delete from likes where u_Idx = ? and r_Idx = ?`,
   restaurantSelect: `select * from restaurants`,
+  likeSelect: `select r_Idx from likes where u_Idx=?`,
+  restaurantSelectByR_Idx: `select * from restaurants where r_Idx=?`,
 };

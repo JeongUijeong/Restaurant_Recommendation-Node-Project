@@ -43,12 +43,12 @@ const signup = async (req, res) => {
         .digest("hex");
 
       // 회원 정보 저장
-      await mysql.query("userInsert", {
-        id: req.body.id,
-        nickname: req.body.id,
-        pw: hashed_pw,
-        salt: salt,
-      });
+      await mysql.query("userInsert", [
+        req.body.id,
+        req.body.id,
+        hashed_pw,
+        salt,
+      ]);
       res.status(200).json({ message: "회원가입이 완료되었습니다." });
     }
   } catch (error) {

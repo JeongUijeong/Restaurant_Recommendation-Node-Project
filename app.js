@@ -7,6 +7,13 @@ const jsonFile = fs.readFileSync("./data.json", "utf8");
 const jsonData = JSON.parse(jsonFile);
 const mysql = require("./mysql");
 
+const corsOptions = {
+  origin: "*", // 허용할 도메인
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 // 클라이언트 요청 body를 json으로 파싱 처리
 app.use(
   express.json({

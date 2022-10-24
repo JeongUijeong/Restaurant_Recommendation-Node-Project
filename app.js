@@ -6,6 +6,14 @@ const fs = require("fs");
 const jsonFile = fs.readFileSync("./data.json", "utf8");
 const jsonData = JSON.parse(jsonFile);
 const mysql = require("./mysql");
+const cors = require("cors");
+
+const corsOptions = {
+  origin: "*", // 허용할 도메인
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const corsOptions = {
   origin: "*", // 허용할 도메인

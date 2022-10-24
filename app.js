@@ -15,7 +15,7 @@ app.use(
 );
 
 app.listen(80, () => {
-  console.log("Server stared. port 3000.");
+  console.log("Server stared. port 80.");
 });
 
 const baseData = async () => {

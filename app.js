@@ -14,7 +14,7 @@ app.use(
   })
 );
 
-app.listen(8080, () => {
+app.listen(80, () => {
   console.log("Server stared. port 3000.");
 });
 

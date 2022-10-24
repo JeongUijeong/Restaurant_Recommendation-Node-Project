@@ -8,19 +8,12 @@ const jsonData = JSON.parse(jsonFile);
 const mysql = require("./mysql");
 const cors = require("cors");
 
-const corsOptions = {
-  origin: "*", // 허용할 도메인
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
-
-const corsOptions = {
-  origin: "*", // 허용할 도메인
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "*", // 허용할 도메인
+    optionsSuccessStatus: 200,
+  })
+);
 
 // 클라이언트 요청 body를 json으로 파싱 처리
 app.use(

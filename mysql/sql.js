@@ -13,9 +13,9 @@ module.exports = {
   restaurantInsert: `insert into restaurants (r_Idx,r_name,image,address,tag,price,stars,parking,takeout) values (?,?,?,?,?,?,?,?,?)`,
   restaurantSelect: `select * from restaurants`,
   restaurantSelectByR_Idx: `select * from restaurants where r_Idx=?`,
-  restaurantSelectBySearch: `select * from restaurants where tag like ? or r_name like ?`,
+  restaurantSelectForSearch: `select * from restaurants where tag like ? or r_name like ?`,
   c_sumSelectByR_Idx: `select count(r_Idx) as c_sum from comments where r_Idx=?`,
-  restaurantSelectByCategory: `select * from restaurants where tag like ? or tag like ?`,
+  restaurantSelectForCategory: `select * from restaurants where tag like ? or tag like ?`,
   restaurantUpdate: `update restaurants set ? where r_Idx=?`,
 
   themeSelectForMain: `select distinct(t_title),t_image from themes`,

@@ -1,5 +1,5 @@
 # Awesome-Place-Spring
-##  맛집 추천 웹 서비스(Recommending restaurant web service) : BackEnd (Spring)
+##  맛집 추천 웹 서비스(Restaurant_Recommendation-Node-Project) : BackEnd
 
 #### Description
   > 22.10.10 ~ 22.11.2 
@@ -13,7 +13,7 @@
   > 기존에 개발했던 AwesomePlace 서비스 백엔드 파트를 수정&보완하여 재개발함
 
 ### DNS
-  - [백엔드 서버 (메인페이지 요청)](http://54.210.101.118:80/main)
+  - [백엔드 서버 (메인페이지 요청)](http://ec2-54-210-101-118.compute-1.amazonaws.com:80/main)
 
 ### 프로젝트 내용
   * 서버 및 DB

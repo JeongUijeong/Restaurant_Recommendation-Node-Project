@@ -5,7 +5,7 @@ const search = async (req, res) => {
   try {
     let result = [];
     // 검색 키워드에 해당하는 음식점 리스트 select
-    let search_result = await mysql.query("restaurantSelectBySearch", [
+    let search_result = await mysql.query("restaurantSelectForSearch", [
       "%" + req.params.search + "%",
       "%" + req.params.search + "%",
     ]);
@@ -44,7 +44,7 @@ const category = async (req, res) => {
     //카테고리에 맞는 음식점 리스트 select
     switch (req.params.category) {
       case "한식":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%한식%",
           "%한식%",
         ]);
@@ -56,60 +56,60 @@ const category = async (req, res) => {
         );
         break;
       case "일식":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%일식%",
           "%일식%",
         ]);
         break;
       case "뷔페식":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%뷔페%",
           "%뷔페%",
         ]);
         break;
       case "경양식":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%경양식%",
           "%경양식%",
         ]);
         break;
       case "찜탕":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%찜%",
           "%탕%",
         ]);
         break;
       case "족발보쌈":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%족발%",
           "%보쌈%",
         ]);
         break;
       case "회":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%회%",
           "%스시%",
         ]);
         break;
       case "고기구이":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%고기구이%",
           "%숯불구이%",
         ]);
       case "국수":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%국수%",
           "%면%",
         ]);
         break;
       case "치킨":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%치킨%",
           "%닭튀김%",
         ]);
         break;
       case "분식":
-        category_list = await mysql.query("restaurantSelectByCategory", [
+        category_list = await mysql.query("restaurantSelectForCategory", [
           "%분식%",
           "%분식%",
         ]);

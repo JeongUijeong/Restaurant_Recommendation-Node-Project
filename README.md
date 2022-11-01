@@ -42,7 +42,7 @@
   <img src="https://user-images.githubusercontent.com/94631526/199167383-6cfde4ed-e16c-4a17-bbfe-3af93193142b.png" width=650 height=630>
   
 ### 요구사항
-  미정
+  <img src="https://user-images.githubusercontent.com/94631526/199172064-f86f37dc-1166-42d2-aa01-b0ec7701e7e6.png" width=650 height=380>
   
 ### 아키텍처
   미정
